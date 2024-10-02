@@ -1,0 +1,58 @@
+#product-details h3{
+    color: black;
+}
+
+#product_id {
+    color: grey;
+    font-size: 0.8rem;
+}
+  
+#product_price {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+#total-product{
+    border: none;
+    background-color: transparent;
+    width: 40px;
+    padding: 0px;
+    text-align: end;
+}
+
+#cart_btn,
+#review_btn {
+    border-radius: 2rem;
+    background-color: #fa9c23;
+    border: none;
+    padding: 0.5rem 2rem;
+}
+  
+#product_seller {
+    color: grey;
+    font-size: 0.9rem;
+}
+  
+#stock_status {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-left: 0.3rem;
+}
+  
+.redColor {
+    color: red;
+}
+  
+.greenColor {
+    color: green;
+}
+  
+#product_image {
+    margin-top: 9rem;
+}
+
+#product_image img{
+    width: 500px;
+    height: 500px;
+}

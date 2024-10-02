@@ -1,20 +1,20 @@
+import { Link } from 'react-router-dom'
+
 export default function ProductCard(props){
+    
 
     return <div className='card'>
     <div className="product-image">
         <img className='img' src={props.product.images[0].image}/>
     </div>
-    <h4>Oppo reno 12 max</h4>
-    <div className='rating'>
-        <ul className='d-flex'>
-            <li><i className='fa-solid fa-star'></i></li>
-            <li><i className='fa-solid fa-star'></i></li>
-            <li><i className='fa-solid fa-star'></i></li>
-            <li><i className='fa-solid fa-star'></i></li>
-            <li><i className='fa-solid fa-star'></i></li>
-        </ul>
+    <Link to={"/product/"+props.product._id} style={{textDecoration: "none"}}><h4>{props.product.name}</h4></Link>
+    <div className='rating mt-auto'>
+        <div className="rating-outer">
+            <div className="rating-inner" style={{width: `${props.product.ratings/5*100}%`}}></div>
+        </div>
     </div>
-    <span>$234.45</span>
-    <button className='btn btn-block'>View Details</button>
+    <span>${props.product.price}</span>   
+    <Link to={"/product/"+props.product._id}><button className='btn btn-block' id='viewBtn'>View Product</button></Link>
+
 </div>
 }

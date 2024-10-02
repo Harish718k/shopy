@@ -1,7 +1,4 @@
-/*
-background-color: #232f3e;
- secondary-#febd69
-*/
+
 
 nav{
     display: flex;
@@ -22,7 +19,7 @@ nav h1, h3{
     display: flex;
 }
 
-nav input{
+#search-input{
     border: none;
     max-width: 800px;
     width: 87%;
