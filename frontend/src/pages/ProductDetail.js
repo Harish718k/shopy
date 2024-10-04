@@ -8,7 +8,7 @@ export default function ProductDetail({cartItems, setCartItems}){
     const [itemQuantity, setItemQuantity] = useState(1);
     const {id} = useParams();
     useEffect(()=>{
-        fetch(process.env.REACT_APP_API_URL+'/product/'+id)
+        fetch(/*process.env.REACT_APP_API_URL*/"https://shopy-b2yw.onrender.com"+'/product/'+id)
         .then(res => res.json())
         .then(res => setProduct(res.product))
     },[])

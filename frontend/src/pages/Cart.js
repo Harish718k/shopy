@@ -33,7 +33,7 @@ export default function Cart({cartItems, setCartItems}){
     }
 
     function orderHandler(){
-        fetch(process.env.REACT_APP_API_URL+'/order', {
+        fetch(/*process.env.REACT_APP_API_URL*/"https://shopy-b2yw.onrender.com"+'/order', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(cartItems)
