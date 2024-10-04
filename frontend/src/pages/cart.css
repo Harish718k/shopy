@@ -11,6 +11,9 @@
   }
   
   .cart-item img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 150px;
     height: auto;
   }
