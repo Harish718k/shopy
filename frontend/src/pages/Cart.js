@@ -1,9 +1,11 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import {Link} from 'react-router-dom'
+import { toast } from 'react-toastify';
 import './cart.css'
 
 export default function Cart({cartItems, setCartItems}){
 
+    const [complete, setComplete] = useState(false)
     function increaseQty(item){
         if(item.product.stock == item.itemQuantity){
             return;
@@ -28,6 +30,19 @@ export default function Cart({cartItems, setCartItems}){
             })
             setCartItems(updatedItem)
         }
+    }
+
+    function orderHandler(){
+        fetch(process.env.REACT_APP_API_URL+'/order', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(cartItems)
+        })
+        .then(()=> { 
+            setCartItems([]);
+            setComplete(true);
+            toast.success("Order Placed succesfully!")
+        })
     }
 
     function removeItem(item){
@@ -93,10 +108,13 @@ export default function Cart({cartItems, setCartItems}){
                             <p>Est. total: <span class="order-summary-values">${cartItems.reduce((acc, item)=>(acc + item.product.price*item.itemQuantity),0).toFixed(2)}</span></p>
 
                             <hr />
-                            <button id="checkout_btn" class="btn btn-primary btn-block">Place Order</button>
+                            <button id="checkout_btn" class="btn btn-primary btn-block" onClick={orderHandler}>Place Order</button>
                         </div>
                     </div>
                 </div>
             </div>
-    </Fragment>: <h2 className='mt-5 text-center'>Your Cart is Empty</h2>
+    </Fragment>: (!complete ? <h2 className='mt-5 text-center'>Your Cart is Empty</h2> : <Fragment>
+        <h2 className='mt-5 text-center'>Your Cart is Empty</h2>
+        <p className='text-center'>Your order has been completed successfully</p>
+    </Fragment>)
 }
