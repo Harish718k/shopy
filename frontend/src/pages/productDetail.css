@@ -40,10 +40,7 @@
 }
   
 #product_image {
-    margin-top: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-top: 9rem;
 }
 
 #product_image img{
